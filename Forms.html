@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Form Assignment</title>
+</head>
+<body>
+<form method = "post">
+Maker: <input type ="text" name="maker"> <br>
+Model: <input type ="text" name="model"> <br>
+Year:  <input type ="text" name="year"> <br>
+Budget:<input type ="text" name="budget"> <br><br><br>
+<input type="submit" value="Submit" onclick="addtoDB()"><br>
+<script>
+function addtoDB() {
+  var xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+        document.getElementById("submitted").innerHTML = "form submitted";
+    }
+  };
+   var Maker = document.getElementById('Maker').value;
+   var Model = document.getElementById('Model').value;
+   var Year = document.getElementById('Year').value;
+   var Budget = document.getElementById('Budget').value;
+
+	var queryString = "?Maker=" + Maker +  "&Model=" + Model + "&Year=" + Year + "&Year=" + Rating + "&Budget=" + Budget;
+   console.log(queryString);
+   xhttp.open("GET", "insert.php" + queryString, true);
+   xhttp.send(null);
+   }
+	</script>
+	
+
+   
+   
+   </body>
+
+
+</html>
